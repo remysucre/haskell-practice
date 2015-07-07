@@ -24,5 +24,4 @@ sumDigits :: [Integer] -> Integer
 sumDigits ns = foldr (\x y -> (x `div` 10) + (x `mod` 10) + y) 0 ns
 
 validate :: Integer -> Bool
--- validate n = sumDigits . doubleEveryOther . toDigits n `mod` 10 == 0
 validate n = (sumDigits . doubleEveryOther . toDigits) n `mod` 10 == 0

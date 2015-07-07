@@ -1,14 +1,24 @@
+module Golf where
+
+import Data.List
+
+-- exercise 1
+indices = map (\n -> iterate (+n) n) [1..]
+
+skipIndices n = map (takeWhile (<= n)) $ take n indices
+
+elmsAt xs ns = map (\n -> xs !! (n - 1)) ns
+
 skips :: [a] -> [[a]]
-skips xs = 
+skips xs = map (elmsAt xs) $ skipIndices (length xs)
 
-nSkip n xs = 
+-- exercise 2
 
-indexOf :: Int Int -> Bool
-indexOf e n = e `mod` n == 0
+localMaxima (x:rest@(y:z:_))
+  | y > x && y > z = y : localMaxima rest
+  | otherwise      = localMaxima rest
+localMaxima _ = []
 
-skips "ABCD" == ["ABCD", "BD", "C", "D"]
-skips "hello!" == ["hello!", "el!", "l!", "l", "o", "!"]
-skips [1] == [[1]]
-skips [True,False] == [[True,False], [False]]
-skips [] == []
+-- exercise 3
 
+-- bad exercise
