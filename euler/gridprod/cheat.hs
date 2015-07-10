@@ -7,7 +7,7 @@ gridToNums :: String -> [[Int]]
 gridToNums g = map (map read . words) $ lines g
 
 sieve :: [[Int]] -> String
-sieve g = unlines $ map (unwords . map (\n -> if n > 80 then show n else "  ")) g
+sieve g = unlines $ map (unwords . map (\n -> if n > 60 then show n else "  ")) g
 
 largeprod :: String -> String
 largeprod = sieve . gridToNums
